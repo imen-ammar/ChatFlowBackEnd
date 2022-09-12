@@ -1,0 +1,4 @@
+CREATE USER chatuser WITH ENCRYPTED PASSWORD 'chatuser';
+CREATE DATABASE chatflow;
+GRANT ALL PRIVILEGES ON DATABASE chatflow TO chatuser;
+ALTER DATABASE chatflow OWNER TO chatuser;
