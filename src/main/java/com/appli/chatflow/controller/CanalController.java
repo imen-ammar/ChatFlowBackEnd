@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.appli.chatflow.entity.Canal;
@@ -48,5 +49,12 @@ public class CanalController {
 	public void deleteAuthor(@PathVariable int id) {
 		
 		canalservice.deleteCanal(id);
+	}
+	
+	@GetMapping("/canalbyuser")
+	
+	public List<Canal> getCanalByUser(@RequestParam int id_utilisateur ){
+		return canalservice.SearchCanalByUserId(id_utilisateur);
+		
 	}
 }

@@ -49,4 +49,9 @@ public class CanalService {
 		
 		return "Canal not found with this id"+id;
 	}
+	
+	public List<Canal> SearchCanalByUserId(int id){
+		return canalRepo.accessCanalViaSignleUser(id);
+		
+	}
 }
