@@ -5,6 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -19,6 +21,12 @@ public class Canal {
 	private int id ; 
 	@Column(nullable = false , unique= true)
 	private String nom ;
+	
+	@ManyToOne
+	@JoinColumn(name ="id_utilisateur")
+	private Utilisateur utilisateur; 
+	
+	
 	
 	
 	public Canal() {
@@ -50,7 +58,18 @@ public class Canal {
 
 	public void setNom(String nom) {
 		this.nom = nom;
+	}
+
+
+	public Utilisateur getUtilisateur() {
+		return utilisateur;
+	}
+
+
+	public void setUtilisateur(Utilisateur utilisateur) {
+		this.utilisateur = utilisateur;
 	} 
+	
 	
 	
 
