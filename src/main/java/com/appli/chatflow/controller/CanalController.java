@@ -33,20 +33,20 @@ public class CanalController {
 	}
 	
 	@PostMapping("/ajoutcanal")
-	public Canal postAuthors(@RequestBody Canal canal) {
+	public Canal AddCanal(@RequestBody Canal canal) {
 		
 		return canalservice.ajouterCanal(canal);
 	}
 	
 	@PutMapping("/modifycanal")
-	public Canal updateAuthor(@RequestBody Canal canal) {
+	public Canal updateCanal(@RequestBody Canal canal) {
 		
 		return canalservice.modifierCanal(canal);
 	}
 	
 	@DeleteMapping("/deletecanal/{id}")
 	
-	public void deleteAuthor(@PathVariable int id) {
+	public void deleteCanal(@PathVariable int id) {
 		
 		canalservice.deleteCanal(id);
 	}

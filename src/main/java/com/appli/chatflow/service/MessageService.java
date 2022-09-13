@@ -18,7 +18,7 @@ public class MessageService {
 	 * Méthode qui permet de recuperer la liste des messages par canal
 	 * 
 	 * @param idCanal Identifiant du canal
-	 * @return une liste de canal
+	 * @return une liste de message
 	 */
 	public List<Message> recupererMessages(int idCanal) {
 		return messageRepository.recupererMessageByIdCanal(idCanal);
