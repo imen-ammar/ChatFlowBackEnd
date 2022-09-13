@@ -8,50 +8,77 @@ import org.springframework.stereotype.Service;
 import com.appli.chatflow.entity.Canal;
 import com.appli.chatflow.repository.CanalRepository;
 
-
 @Service
 public class CanalService {
 
-	
-
 	@Autowired
-	CanalRepository canalRepo; 
+	CanalRepository canalRepo;
 	
-	public List<Canal> getCanals(){
+	/**
+	 * Method to extract all the canals 
+	 * @return
+	 */
+
+	public List<Canal> getCanals() {
 		return canalRepo.findAll();
 	}
 	
+	/**
+	 * Method to add a row/data in table/entity canal 
+	 * @param canal
+	 * @return
+	 */
 	
+
 	public Canal ajouterCanal(Canal canal) {
-		
+
 		return canalRepo.save(canal);
 	}
 	
-	
+	/**
+	 * Method to do modification in each tulip/row 
+	 * @param canal
+	 * @return
+	 */
+
 	public Canal modifierCanal(Canal canal) {
-		
+
 		Canal newcanal = canalRepo.findById(canal.getId()).orElse(null);
+		// condition to check if the field is not empty then it will create a new canal
 		
-		newcanal.setNom(canal.getNom());
-		
-		canalRepo.save(newcanal);
+		if (newcanal != null) {
+			newcanal.setNom(canal.getNom());
+			canalRepo.save(newcanal);
+		}
+
 		return newcanal;
-		
+
 	}
-	
-	
-	public String deleteCanal(int id) {
+
+	/**
+	 * Method to delete a row from table 
+	 * @param id
+	 */
+	public void deleteCanal(int id) {
 		
-		if (canalRepo.findById(id).orElse(null)!=null) {
-			
+		// Condition to verify if the canal of given id is not empty , 
+		//if it is not empty delete the row 
+
+		if (canalRepo.findById(id).orElse(null) != null) {
+
 			canalRepo.deleteById(id);
 		}
-		
-		return "Canal not found with this id"+id;
+
 	}
 	
-	public List<Canal> SearchCanalByUserId(int id){
-		return canalRepo.accessCanalViaSignleUser(id);
-		
+	/**
+	 * Method to search Canal by user id 
+	 * @param id
+	 * @return
+	 */
+
+	public List<Canal> SearchCanalByUserId(int id) {
+		return canalRepo.getCanalByUserId(id);
+
 	}
 }
