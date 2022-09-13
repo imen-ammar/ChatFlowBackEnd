@@ -1,0 +1,161 @@
+{
+	"info": {
+		"_postman_id": "a9b67f1a-5f65-4a3d-8d04-6b6008d3895b",
+		"name": "ChatFlow",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23106438"
+	},
+	"item": [
+		{
+			"name": "Message",
+			"item": [
+				{
+					"name": "Ajouter message",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"canal\" : {\r\n       \"id\":7\r\n   },\r\n    \"contenu\" : \"Bonjour\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/message/save",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"message",
+								"save"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Afficher message",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/message/recuperer?idCanal=7",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"message",
+								"recuperer"
+							],
+							"query": [
+								{
+									"key": "idCanal",
+									"value": "7"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Canal",
+			"item": [
+				{
+					"name": "Ajouter Canal",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nom\": \"Formation\",\r\n\r\n    \"utilisateur\" : {\r\n\r\n        \"id\" : 1\r\n\r\n        }\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/canal/ajoutcanal",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"canal",
+								"ajoutcanal"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Afficher Canal",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Modifier Canal",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": " {\r\n        \"id\": 7,\r\n        \"nom\": \"Général\",\r\n        \"utilisateur\": {\r\n            \"id\": 1,\r\n            \"nom\": \"Imen\",\r\n            \"prenom\": \"Iqra\"\r\n        }\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/canal/modifycanal",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"canal",
+								"modifycanal"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Canal",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/canal/deletecanal/5",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"canal",
+								"deletecanal",
+								"5"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Utilisateur",
+			"item": []
+		}
+	]
+}
