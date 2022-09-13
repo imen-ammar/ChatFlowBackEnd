@@ -10,16 +10,26 @@ import com.appli.chatflow.repository.MessageRepository;
 
 @Service
 public class MessageService {
-	
+
 	@Autowired
 	MessageRepository messageRepository;
-	
-	// recuperer la liste des messages par canal
-	public List<Message> recupererMessages(int idCanal){
+
+	/**
+	 * Méthode qui permet de recuperer la liste des messages par canal
+	 * 
+	 * @param idCanal Identifiant du canal
+	 * @return une liste de canal
+	 */
+	public List<Message> recupererMessages(int idCanal) {
 		return messageRepository.recupererMessageByIdCanal(idCanal);
 	}
-	
-	// Ajouter un message
+
+	/**
+	 * Méthode qui permet de sauvegarder un message
+	 * 
+	 * @param message Le message
+	 * @return Le message enregistré
+	 */
 	public Message ajouterMessage(Message message) {
 		return messageRepository.save(message);
 	}
