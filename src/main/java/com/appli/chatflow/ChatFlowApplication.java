@@ -12,5 +12,4 @@ public class ChatFlowApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(ChatFlowApplication.class, args);
 	}
-
 }

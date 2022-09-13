@@ -16,6 +16,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.appli.chatflow.entity.Canal;
 import com.appli.chatflow.service.CanalService;
 
+import io.swagger.annotations.ApiOperation;
+
 @RestController
 @RequestMapping("/canal")
 public class CanalController {
@@ -24,35 +26,33 @@ public class CanalController {
 	CanalService canalservice;
 
 	@GetMapping("/allcanals")
+	@ApiOperation(value = "API that will list all the canal")
 	public List<Canal> getallCanal() {
-
 		return canalservice.getCanals();
-
 	}
 
 	@PostMapping("/ajoutcanal")
+	@ApiOperation(value = "API that will Add new canal")
 	public Canal AddCanal(@RequestBody Canal canal) {
-
 		return canalservice.ajouterCanal(canal);
 	}
 
 	@PutMapping("/modifycanal")
+	@ApiOperation(value = "API that will update canal")
 	public Canal updateCanal(@RequestBody Canal canal) {
-
 		return canalservice.modifierCanal(canal);
 	}
 
 	@DeleteMapping("/deletecanal/{id}")
-
-	public void deleteCanal(@PathVariable int id) {
-
-		canalservice.deleteCanal(id);
+	@ApiOperation(value = "API that will remove canal")
+	public void deleteCanal(@PathVariable int idCanal) {
+		canalservice.deleteCanal(idCanal);
 	}
 
 	@GetMapping("/canalbyuser")
-
-	public List<Canal> getCanalByUser(@RequestParam int id_utilisateur) {
-		return canalservice.SearchCanalByUserId(id_utilisateur);
+	@ApiOperation(value = "API that will list the canal by user Id")
+	public List<Canal> getCanalByUser(@RequestParam int idUtilisateur) {
+		return canalservice.SearchCanalByUserId(idUtilisateur);
 
 	}
 }
