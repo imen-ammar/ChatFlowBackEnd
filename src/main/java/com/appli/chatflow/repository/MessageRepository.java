@@ -10,7 +10,8 @@ import com.appli.chatflow.entity.Message;
 
 public interface MessageRepository extends JpaRepository<Message, Integer> {
 
-	@Query("SELECT m FROM Message m WHERE m.canal.id = :id")
+	@Query("SELECT m FROM Message m WHERE m.canal.id = :id ORDER BY m.time DESC")
 	public List<Message> recupererMessageByIdCanal(@Param("id") int id);
+	
 
 }
