@@ -16,7 +16,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"canal\" : {\r\n       \"id\":7\r\n   },\r\n    \"contenu\" : \"Bonjour\"\r\n}",
+							"raw": "{\r\n    \"canal\" : {\r\n       \"id\":7\r\n   },\r\n    \"contenu\" : \"Bonsoir123\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -99,7 +99,43 @@
 					"name": "Afficher Canal",
 					"request": {
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/canal/allcanals",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"canal",
+								"allcanals"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Afficher Canal By user id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/canal/canalbyuser?id_utilisateur=1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"canal",
+								"canalbyuser"
+							],
+							"query": [
+								{
+									"key": "id_utilisateur",
+									"value": "1"
+								}
+							]
+						}
 					},
 					"response": []
 				},
@@ -155,7 +191,35 @@
 		},
 		{
 			"name": "Utilisateur",
-			"item": []
+			"item": [
+				{
+					"name": "AddUtilisateur",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nom\":\"Ben Amor\",\r\n    \"prenom\":\"Jawher\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/utilisateur",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"utilisateur"
+							]
+						}
+					},
+					"response": []
+				}
+			]
 		}
 	]
 }

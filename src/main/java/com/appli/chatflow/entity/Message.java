@@ -1,5 +1,8 @@
 package com.appli.chatflow.entity;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -13,6 +16,7 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 @Entity
 @Table(name = "message")
@@ -27,16 +31,17 @@ public class Message {
 	private String contenu;
 
 	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-	private Date time = new Date();
+	private LocalDateTime time = LocalDateTime.now(ZoneId.of("Europe/Paris"));
 
 	@ManyToOne
 	@JoinColumn(name = "id_canal")
+	@JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
 	private Canal canal;
 
 	public Message() {
 	}
 
-	public Message(int id, String contenu, Date time) {
+	public Message(int id, String contenu, LocalDateTime time) {
 		this.id = id;
 		this.contenu = contenu;
 		this.time = time;
@@ -58,11 +63,11 @@ public class Message {
 		this.contenu = contenu;
 	}
 
-	public Date getTime() {
+	public LocalDateTime getTime() {
 		return time;
 	}
 
-	public void setTime(Date time) {
+	public void setTime(LocalDateTime time) {
 		this.time = time;
 	}
 

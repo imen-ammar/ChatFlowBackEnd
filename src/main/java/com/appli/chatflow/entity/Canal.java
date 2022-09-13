@@ -10,6 +10,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 @Entity
 @Table(name = "canal")
 public class Canal {
@@ -24,6 +26,8 @@ public class Canal {
 
 	@ManyToOne
 	@JoinColumn(name = "id_utilisateur")
+	@JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+	
 	private Utilisateur utilisateur;
 
 	public Canal() {
