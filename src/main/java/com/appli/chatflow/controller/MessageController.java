@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.appli.chatflow.entity.Message;
 import com.appli.chatflow.service.MessageService;
 
+import io.swagger.annotations.ApiOperation;
+
 @RestController
 @RequestMapping("/message")
 public class MessageController {
@@ -21,11 +23,13 @@ public class MessageController {
 	MessageService messageService;
 	
 	@GetMapping("/recuperer")
+	@ApiOperation(value = "API permettant de récupérer les messages d'un canal")
 	public List<Message> recupererMessageByIdCanal(@RequestParam int idCanal){
 		return messageService.recupererMessages(idCanal);
 	}
 	
 	@PostMapping("/save")
+	@ApiOperation(value = "API permettant d'envoyer un message")
 	public Message sauvegarderMessage(@RequestBody Message message) {
 		return messageService.ajouterMessage(message);
 	}
