@@ -1,7 +1,7 @@
 <h1 align="center">ChatFlow</h1>
 
 <p align="center">
-  <img src="ressources/logo.png" alt="chatflow-logo" width="120px" height="120px"/>
+  <img src="ressources/images/logo.png" alt="chatflow-logo" width="120px" height="120px"/>
   <br>
   <i>ChatFlow est une application de chat développée avec Java et Spring coté BackEnd, Angular et Bootstrap coté FrontEnd</i><br>
     <br>L'équipe de développement est composée de :

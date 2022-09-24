@@ -4,7 +4,7 @@ Ce document permet d'expliquer l'architecture de la partie Back End
 # Architecture
 
 <p align="center">
-  <img src="architecture.png" alt="chatflow-logo" width="700px" height="350px"/>
+  <img src="images/architecture.png" alt="chatflow-logo" width="700px" height="350px"/>
 </p>
 
 ## Entités
@@ -13,7 +13,7 @@ Les classes utilisent les annotations JPA (@Entity, @Id, @column,...).<br>
 Chaque identifiant d'une entité est géré par une séquence.
 
 <p >
-  <img src="entite_utilisateur.png" alt="Utilisateur" />
+  <img src="images/entite_message.png" alt="Message" />
 </p>
 
 ## Repository
@@ -22,7 +22,7 @@ Pour étendre l'interface, il faut spécifier le nom de l'entité ainsi que le t
 Vous pouvez aussi spécifier des méthodes avec des requêtes JPQL.
 
 <p>
-  <img src="repository_message.png" alt="messageRepository" />
+  <img src="images/repository_message.png" alt="messageRepository" />
 </p>
 
 
@@ -31,7 +31,7 @@ Vous pouvez aussi spécifier des méthodes avec des requêtes JPQL.
 Chaque classe est annoter par l'annotation **@Service**<br>
 Pour chaque classe, on injecte la dépendance vers le reposiory via l'annotation **@Autowired**<br>
 <p>
-  <img src="service_message.png" alt="messageRepository" />
+  <img src="images/service_message.png" alt="messageRepository" />
 </p>
 
 ## Contrôleurs
@@ -39,7 +39,7 @@ Pour chaque classe, on injecte la dépendance vers le reposiory via l'annotation
 Chaque classe est annoter par les annotations **@RestController** et **@RequestMapping**<br>
 Pour chaque classe, on injecte la dépendance vers le service via l'annotation **@Autowired**<br>
 <p>
-  <img src="controller_message.png" alt="messageRepository" />
+  <img src="images/controller_message.png" alt="messageRepository" />
 </p>
 
 
