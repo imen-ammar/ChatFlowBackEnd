@@ -16,24 +16,29 @@ import javax.persistence.Table;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-@Entity
-@Table(name = "message")
+/**
+ * Entité Message
+ *
+ */
+@Entity // Spécifie que la classe est une entité
+@Table(name = "message") // Spécifie le nom de la table dans la BDD
 public class Message {
 
-	@Id
+	@Id // Spécifie que l'attribut id est la clé primaire de la table utilisateur
+	// Déclaration de la séquence seq_message qui va gérer la clé primaire de la table message
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_message")
 	@SequenceGenerator(name = "seq_message", allocationSize = 1)
 	private int id;
 
-	@Column(nullable = false)
+	@Column(nullable = false) // Colonne non null
 	private String contenu;
 
 	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
 	private LocalDateTime time = LocalDateTime.now(ZoneId.of("Europe/Paris"));
 
-	@ManyToOne
-	@JoinColumn(name = "id_canal")
-	@JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+	@ManyToOne // Lien plusieurs à 1 : c.à.d. plusieurs messages sont liés à un canal
+	@JoinColumn(name = "id_canal") // Spécifie le nom de la colonne à ajouter dans la table message
+	@JsonProperty(access = JsonProperty.Access.WRITE_ONLY) // Autorise l'affichage de cet attribut que lors de l'écriture
 	private Canal canal;
 
 	public Message() {

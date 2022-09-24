@@ -8,6 +8,10 @@ import org.springframework.data.repository.query.Param;
 
 import com.appli.chatflow.entity.Message;
 
+/**
+ * Interface permettant de gérer les messages
+ *
+ */
 public interface MessageRepository extends JpaRepository<Message, Integer> {
 
 	/**
@@ -16,7 +20,7 @@ public interface MessageRepository extends JpaRepository<Message, Integer> {
 	 * @return La liste des messages d'un canal
 	 */
 	@Query("SELECT m FROM Message m WHERE m.canal.id = :idCanal ORDER BY m.time DESC")
-	public List<Message> recupererMessageByIdCanal(@Param("idCanal") int idCanal);
+	public List<Message> recupererMessagesByIdCanal(@Param("idCanal") int idCanal);
 	
 
 }

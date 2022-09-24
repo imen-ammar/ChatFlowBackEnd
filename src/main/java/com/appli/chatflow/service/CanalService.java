@@ -8,6 +8,10 @@ import org.springframework.stereotype.Service;
 import com.appli.chatflow.entity.Canal;
 import com.appli.chatflow.repository.CanalRepository;
 
+/**
+ * Classe permettant de créer des services afin de gérer les canaux
+ *
+ */
 @Service
 public class CanalService {
 

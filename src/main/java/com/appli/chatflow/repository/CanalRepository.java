@@ -9,6 +9,10 @@ import org.springframework.data.repository.query.Param;
 import com.appli.chatflow.entity.Canal;
 
 
+/**
+ * Interface permettant de gérer les canaux
+ *
+ */
 public interface CanalRepository extends JpaRepository<Canal, Integer>{
 	
 	/**

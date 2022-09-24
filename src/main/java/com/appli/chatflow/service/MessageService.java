@@ -8,10 +8,14 @@ import org.springframework.stereotype.Service;
 import com.appli.chatflow.entity.Message;
 import com.appli.chatflow.repository.MessageRepository;
 
+/**
+ * Classe permettant de créer des services afin de gérer les messages
+ *
+ */
 @Service
 public class MessageService {
 
-	@Autowired
+	@Autowired // Injection des dépendances
 	MessageRepository messageRepository;
 
 	/**
@@ -21,7 +25,7 @@ public class MessageService {
 	 * @return une liste de message
 	 */
 	public List<Message> recupererMessages(int idCanal) {
-		return messageRepository.recupererMessageByIdCanal(idCanal);
+		return messageRepository.recupererMessagesByIdCanal(idCanal);
 	}
 
 	/**
