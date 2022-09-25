@@ -18,6 +18,10 @@ import com.appli.chatflow.service.CanalService;
 
 import io.swagger.annotations.ApiOperation;
 
+/**
+ * Classe permettant d'exposer des Webservices REST afin de gérer les canaux
+ *
+ */
 @RestController
 @RequestMapping("/canal")
 public class CanalController {

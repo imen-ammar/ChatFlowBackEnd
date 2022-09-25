@@ -15,15 +15,19 @@ import com.appli.chatflow.service.MessageService;
 
 import io.swagger.annotations.ApiOperation;
 
-@RestController
-@RequestMapping("/message")
+/**
+ * Classe permettant d'exposer des Webservices REST afin de gérer les messages
+ *
+ */
+@RestController // Spécifie que c'est un contrôleur REST
+@RequestMapping("/message") // Spécifie le point d'entrée vers ce contrôleur
 public class MessageController {
 	
-	@Autowired
+	@Autowired // Injection des dépendances
 	MessageService messageService;
 	
-	@GetMapping("/recuperer")
-	@ApiOperation(value = "API permettant de récupérer les messages d'un canal")
+	@GetMapping("/recuperer") // Spécifie le verbe HTTP ainsi que le point d'entrée
+	@ApiOperation(value = "API permettant de récupérer les messages d'un canal") // Documenttaion Swagger
 	public List<Message> recupererMessageByIdCanal(@RequestParam int idCanal){
 		return messageService.recupererMessages(idCanal);
 	}

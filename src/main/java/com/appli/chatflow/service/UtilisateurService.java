@@ -6,6 +6,10 @@ import org.springframework.stereotype.Service;
 import com.appli.chatflow.entity.Utilisateur;
 import com.appli.chatflow.repository.UtilisateurRepository;
 
+/**
+ * Classe permettant de créer des services afin de gérer les utilisateurs
+ *
+ */
 @Service
 public class UtilisateurService {
 

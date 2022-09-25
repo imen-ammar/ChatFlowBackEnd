@@ -11,6 +11,10 @@ import com.appli.chatflow.service.UtilisateurService;
 
 import io.swagger.annotations.ApiOperation;
 
+/**
+ * Classe permettant d'exposer des Webservices REST afin de gérer les utilisateurs
+ *
+ */
 @RestController
 @RequestMapping("/utilisateur")
 public class UtilisateurController {

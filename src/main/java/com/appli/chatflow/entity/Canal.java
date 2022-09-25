@@ -12,6 +12,10 @@ import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+/**
+ * Entité Canal
+ *
+ */
 @Entity
 @Table(name = "canal")
 public class Canal {

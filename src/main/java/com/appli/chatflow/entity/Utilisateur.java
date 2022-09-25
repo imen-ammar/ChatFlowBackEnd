@@ -7,6 +7,10 @@ import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+/**
+ * Entité Utilisateur
+ *
+ */
 @Entity
 @Table(name = "utilisateur")
 public class Utilisateur {
