@@ -42,5 +42,10 @@ Pour chaque classe, on injecte la dépendance vers le service via l'annotation *
   <img src="images/controller_message.png" alt="messageRepository" />
 </p>
 
+## Schéma de la BDD
+>Voici le schéma de la BDD généré via pgAdmin
+<p>
+  <img src="images/bdd.png" alt="schemaBDD" />
+</p>
 
 
