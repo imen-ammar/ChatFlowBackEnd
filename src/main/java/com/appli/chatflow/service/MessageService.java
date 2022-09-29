@@ -37,5 +37,4 @@ public class MessageService {
 	public Message ajouterMessage(Message message) {
 		return messageRepository.save(message);
 	}
-
 }

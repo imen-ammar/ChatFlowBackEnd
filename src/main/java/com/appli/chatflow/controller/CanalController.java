@@ -3,7 +3,6 @@ package com.appli.chatflow.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -16,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.appli.chatflow.entity.Canal;
 import com.appli.chatflow.service.CanalService;
+import com.appli.chatflow.service.MessageService;
 
 import io.swagger.annotations.ApiOperation;
 
@@ -24,12 +24,12 @@ import io.swagger.annotations.ApiOperation;
  *
  */
 @RestController
-
 @RequestMapping("/canal")
 public class CanalController {
 
 	@Autowired
 	CanalService canalservice;
+	
 
 	@GetMapping("/allcanals")
 	@ApiOperation(value = "API that will list all the canal")
@@ -49,9 +49,9 @@ public class CanalController {
 		return canalservice.modifierCanal(canal);
 	}
 
-	@DeleteMapping("/deletecanal/{id}")
+	@DeleteMapping("/deletecanal")
 	@ApiOperation(value = "API that will remove canal")
-	public void deleteCanal(@PathVariable int idCanal) {
+	public void deleteCanal(@RequestParam int idCanal) {
 		canalservice.deleteCanal(idCanal);
 	}
 
