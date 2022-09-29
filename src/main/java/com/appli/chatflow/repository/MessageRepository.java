@@ -19,7 +19,7 @@ public interface MessageRepository extends JpaRepository<Message, Integer> {
 	 * @param idCanal Identifiant d'un canal
 	 * @return La liste des messages d'un canal
 	 */
-	@Query("SELECT m FROM Message m WHERE m.canal.id = :idCanal ORDER BY m.time DESC")
+	@Query("SELECT m FROM Message m WHERE m.canal.id = :idCanal ORDER BY m.time ASC")
 	public List<Message> recupererMessagesByIdCanal(@Param("idCanal") int idCanal);
 	
 

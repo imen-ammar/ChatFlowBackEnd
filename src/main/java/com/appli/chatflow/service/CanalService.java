@@ -1,6 +1,8 @@
 package com.appli.chatflow.service;
 
+import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,13 +22,13 @@ public class CanalService {
 
 	/**
 	 * Method to extract all the canals and will return all the created canals in DB
-	 * 
+	 * sorted is used to dispaly the list in order
 	 * @return list of canals
 	 */
 
 	public List<Canal> getCanals() {
-		return canalRepo.findAll();
-	}
+		return canalRepo.findAll().stream().sorted(Comparator.comparing(Canal::getId)).collect(Collectors.toList());
+		}
 
 	/**
 	 * Method to add a row/data in table/entity canal and save the data/ row that we
